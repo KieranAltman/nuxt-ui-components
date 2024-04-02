@@ -1,35 +1,16 @@
 import {
   defineNuxtModule,
-  extendViteConfig,
   createResolver,
   addComponentsDir,
-  useNuxt,
+  installModule,
 } from "@nuxt/kit";
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
 
-/**
- * for build
- */
-const setupTranspilation = () => {
-  const nuxt = useNuxt();
-
-  const transpile = nuxt.options.build.transpile || [];
-  // transpile.push("qrcode");
-  nuxt.options.build.transpile = transpile;
-};
-
-const setupOptimizeDeps = () => {
-  extendViteConfig((config) => {
-    // config.optimizeDeps?.include?.push("qrcode");
-  });
-};
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: "my-module",
-    configKey: "myModule",
+    name: "@freeloop/nuxt-ui-components",
   },
   // Default configuration options of the Nuxt module
   defaults: {},
@@ -37,6 +18,24 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url);
     const runtimeDir = resolve("./runtime");
 
+    // install other modules
+    installModule("@nuxtjs/tailwindcss", {
+      exposeConfig: true,
+      config: {
+        darkMode: "class",
+        content: {
+          files: [resolve(runtimeDir, "components/**/*.{vue,mjs,ts}")],
+          transform: {
+            vue: (content: string) => {
+              return content.replaceAll(/(?:\r\n|\r|\n)/g, " ");
+            },
+          },
+        },
+      },
+    });
+    installModule("nuxt-icon");
+
+    // auto imports
     addComponentsDir({ path: resolve(runtimeDir, "components") });
   },
 });
