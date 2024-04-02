@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.5...v0.0.6)
+
+### 🏡 Chore
+
+- Update readme ([db4fc7a](https://github.com/zh-kai/nuxt-ui-components/commit/db4fc7a))
+
+### ❤️ Contributors
+
+- Zh-kai <zh_kai0531@163.com>
+
 ## v0.0.5
 
 [compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.4...v0.0.5)
