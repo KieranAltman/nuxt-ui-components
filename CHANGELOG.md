@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Add modal dark theme ([13c9793](https://github.com/zh-kai/nuxt-ui-components/commit/13c9793))
+
+### 🏡 Chore
+
+- **release:** V0.0.4 ([3e75300](https://github.com/zh-kai/nuxt-ui-components/commit/3e75300))
+
+### ❤️ Contributors
+
+- Zh-kai <zh_kai0531@163.com>
+
 ## v0.0.4
 
 [compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.3...v0.0.4)
