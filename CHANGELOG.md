@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.6...v0.0.7)
+
+### 🏡 Chore
+
+- **release:** V0.0.6 ([7d23380](https://github.com/zh-kai/nuxt-ui-components/commit/7d23380))
+- Clear useless code ([d6c96f1](https://github.com/zh-kai/nuxt-ui-components/commit/d6c96f1))
+
+### ❤️ Contributors
+
+- Zh-kai <zh_kai0531@163.com>
+
 ## v0.0.6
 
 [compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.5...v0.0.6)
