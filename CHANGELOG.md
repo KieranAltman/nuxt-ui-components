@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.3...v0.0.4)
+
+### 🩹 Fixes
+
+- Add ref import ([c5ca892](https://github.com/zh-kai/nuxt-ui-components/commit/c5ca892))
+
+### ❤️ Contributors
+
+- Zh-kai <zh_kai0531@163.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.2...v0.0.3)
