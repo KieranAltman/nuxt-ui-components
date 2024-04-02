@@ -1,19 +1,42 @@
-import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  extendViteConfig,
+  createResolver,
+  addComponentsDir,
+  useNuxt,
+} from "@nuxt/kit";
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
 
+/**
+ * for build
+ */
+const setupTranspilation = () => {
+  const nuxt = useNuxt();
+
+  const transpile = nuxt.options.build.transpile || [];
+  // transpile.push("qrcode");
+  nuxt.options.build.transpile = transpile;
+};
+
+const setupOptimizeDeps = () => {
+  extendViteConfig((config) => {
+    // config.optimizeDeps?.include?.push("qrcode");
+  });
+};
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'my-module',
-    configKey: 'myModule'
+    name: "my-module",
+    configKey: "myModule",
   },
   // Default configuration options of the Nuxt module
   defaults: {},
-  setup (options, nuxt) {
-    const resolver = createResolver(import.meta.url)
+  setup() {
+    const { resolve } = createResolver(import.meta.url);
+    const runtimeDir = resolve("./runtime");
 
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve('./runtime/plugin'))
-  }
-})
+    addComponentsDir({ path: resolve(runtimeDir, "components") });
+  },
+});
