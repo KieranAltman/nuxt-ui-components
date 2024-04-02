@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Support spline sandbox ([599a9cf](https://github.com/zh-kai/nuxt-ui-components/commit/599a9cf))
+
+### ❤️ Contributors
+
+- Zh-kai <zh_kai0531@163.com>
+
 ## v0.0.7
 
 [compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.6...v0.0.7)
