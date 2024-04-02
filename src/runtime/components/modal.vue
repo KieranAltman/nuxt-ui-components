@@ -3,14 +3,14 @@
     <Transition name="modal">
       <div
         v-if="showModal"
-        class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-white/75 backdrop-blur overflow-auto"
+        class="fixed inset-0 z-50 flex items-center justify-center p-6 backdrop-blur bg-white/75 dark:bg-black/50 overflow-hidden"
         @click="onMaskClick"
       >
         <!-- panel -->
-        <div class="m-auto modal-panel" @click.stop>
+        <div class="w-full m-auto modal-panel" @click.stop>
           <slot name="panel">
             <div
-              class="w-full max-w-96 overflow-hidden rounded-3xl modal-panel-shadow bg-white text-black"
+              class="w-full max-w-96 mx-auto overflow-hidden rounded-3xl modal-panel-shadow bg-white text-black dark:bg-zinc-900 dark:text-white"
             >
               <!-- title -->
               <div class="relative flex min-h-10 items-center px-6 py-6">
@@ -43,6 +43,7 @@ import {
   withDefaults,
   defineProps,
   ref,
+  computed,
   watch,
   onMounted,
   onUnmounted,
@@ -63,7 +64,7 @@ const hasScrollBar = ref(true);
 const toggleClass = () => {
   if (showModal.value) {
     document.body.style.setProperty("overflow", "hidden");
-    if (hasScrollBar) {
+    if (hasScrollBar.value) {
       document.body.style.setProperty("padding-right", "15px");
     }
   } else {
