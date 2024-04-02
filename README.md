@@ -24,7 +24,7 @@ My new Nuxt module for doing amazing things.
 
 <!-- Highlight some of the features your module provide here -->
 
-- ⛰ &nbsp;`<Modal>` & `<Qrcode>` component.
+- ⛰ &nbsp;`<Modal>` & `<Qrcode>` & `<SplineSandbox>` component.
 - 🚠 &nbsp;`nuxt-icon` and `@nuxtjs/tailwindcss` are installed in advance.
 
 ## Quick Setup

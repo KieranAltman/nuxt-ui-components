@@ -39,15 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  withDefaults,
-  defineProps,
-  ref,
-  computed,
-  watch,
-  onMounted,
-  onUnmounted,
-} from "vue";
+import { ref, watch, onMounted, onUnmounted } from "vue";
 
 const props = withDefaults(
   defineProps<{

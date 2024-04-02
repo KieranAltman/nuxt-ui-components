@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.11.1",
+    "@splinetool/runtime": "^1.0.91",
     "easyqrcodejs": "^4.6.1"
   },
   "devDependencies": {
