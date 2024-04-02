@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <transition name="modal">
+    <Transition name="modal">
       <div
         v-if="showModal"
         class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-white/75 backdrop-blur overflow-auto"
@@ -34,7 +34,7 @@
           </slot>
         </div>
       </div>
-    </transition>
+    </Transition>
   </Teleport>
 </template>
 
