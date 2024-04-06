@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted } from "vue";
+import { useRoute } from "vue-router";
 
 const props = withDefaults(
   defineProps<{
@@ -50,6 +51,7 @@ const props = withDefaults(
   }>(),
   { title: "" }
 );
+const route = useRoute();
 const showModal = defineModel("show");
 const hasScrollBar = ref(true);
 
@@ -57,7 +59,10 @@ const toggleClass = () => {
   if (showModal.value) {
     document.body.style.setProperty("overflow", "hidden");
     if (hasScrollBar.value) {
-      document.body.style.setProperty("padding-right", "15px");
+      document.body.style.setProperty(
+        "padding-right",
+        `${getScrollbarWith()}px`
+      );
     }
   } else {
     setTimeout(() => {
@@ -65,22 +70,15 @@ const toggleClass = () => {
     }, 150);
   }
 };
+
 // 控制 body 滚动条显示 / 隐藏
 onMounted(() => {
-  hasScrollBar.value = document.body.scrollHeight > window.innerHeight;
   if (showModal.value) {
     toggleClass();
   }
 });
-onUnmounted(() => {
-  toggleClass();
-});
-watch(
-  () => props.show,
-  () => {
-    toggleClass();
-  }
-);
+onUnmounted(toggleClass);
+watch(() => props.show, toggleClass);
 const close = () => {
   showModal.value = false;
 };
@@ -89,6 +87,31 @@ const onMaskClick = () => {
     close();
   }
 };
+
+const getScrollbarWith = () => {
+  const div = document.createElement("div");
+  div.style.overflowY = "scroll";
+  div.style.width = "50px";
+  div.style.height = "50px";
+
+  document.body.append(div);
+  const scrollWidth = div.offsetWidth - div.clientWidth;
+
+  div.remove();
+
+  return scrollWidth;
+};
+const checkScrollBar = () => {
+  hasScrollBar.value =
+    document.body.scrollHeight > window.innerHeight && getScrollbarWith() > 0;
+};
+onMounted(checkScrollBar);
+watch(
+  () => route.fullPath,
+  () => {
+    setTimeout(checkScrollBar, 100);
+  }
+);
 </script>
 
 <style>
