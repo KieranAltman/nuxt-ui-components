@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.8...v0.0.9)
+
+### 🩹 Fixes
+
+- Modal scroll bar ([20cd429](https://github.com/zh-kai/nuxt-ui-components/commit/20cd429))
+
+### ❤️ Contributors
+
+- Zh-kai <zh_kai0531@163.com>
+
 ## v0.0.8
 
 [compare changes](https://github.com/zh-kai/nuxt-ui-components/compare/v0.0.7...v0.0.8)
